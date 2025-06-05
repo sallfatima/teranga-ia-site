@@ -1,0 +1,11 @@
+:root {
+  --color-primary: #003366;
+  --color-secondary: #ffffff;
+  --color-accent: #F63D15;
+  --color-gray: #666666;
+  --font-primary: 'Roboto', sans-serif;
+  --spacing-base: 1rem;
+  --spacing-sm: 0.5rem;
+  --spacing-lg: 2rem;
+  --container-max-width: 1200px;
+}

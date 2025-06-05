@@ -1,0 +1,173 @@
+/* src/styles/Hero.module.css */
+
+/* ───────────────────────────────
+   1. SECTION HERO (plein écran)
+──────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 100vh; /* rempli tout l'écran */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f8f9ff 0%, #e8f0ff 100%);
+  overflow: hidden; /* pour masquer les débordements des éléments flottants */
+}
+
+/* ───────────────────────────────
+   2. ÉLÉMENTS FLOTTANTS (icônes) 
+   Animés en up/down.
+──────────────────────────────── */
+.floatingElement {
+  position: absolute;
+  font-size: 3rem;
+  opacity: 0.1;
+  animation: float 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Positionnement précis de chaque icône : */
+.robot {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.lightning {
+  bottom: 20%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.microscope {
+  top: 60%;
+  left: 25%;
+  animation-delay: 4s;
+}
+
+/* Animation “up/down” */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* ───────────────────────────────
+   3. CONTENU DU HERO (centré)
+──────────────────────────────── */
+.heroContent {
+  z-index: 2; /* au-dessus des éléments flottants */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease;
+}
+
+/* Quand isVisible devient true, on ajoute cette classe pour animer */
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ───────────────────────────────
+   4. TITRE & SOUS-TITRE & TEXTE
+──────────────────────────────── */
+.title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #162CF8;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  line-height: 1.4;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.description {
+  font-size: 1.15rem;
+  color: #666;
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+}
+
+/* ───────────────────────────────
+   5. BOUTONS DANS LE HERO
+──────────────────────────────── */
+.heroButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Bouton principal en dégradé */
+.ctaButton {
+  background: linear-gradient(135deg, #162CF8, #F63D15);
+  color: white;
+  padding: 0.9rem 1.8rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(22, 44, 248, 0.3);
+}
+
+/* Bouton secondaire (bordure + texte bleu) */
+.btnSecondary {
+  background: transparent;
+  color: #162CF8;
+  border: 2px solid #162CF8;
+  padding: 0.9rem 1.8rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btnSecondary:hover {
+  background: #162CF8;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ───────────────────────────────
+   6. MEDIA QUERIES (optionnel)
+   Ajustez la taille du texte sur petits écrans
+──────────────────────────────── */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+  .subtitle {
+    font-size: 1.2rem;
+  }
+  .description {
+    font-size: 1rem;
+  }
+  .ctaButton,
+  .btnSecondary {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
