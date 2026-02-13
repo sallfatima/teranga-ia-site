@@ -1,3 +1,4 @@
+// src/components/Engagements.tsx
 import { useEffect, useRef, useState } from 'react';
 
 const Engagements = () => {
@@ -12,27 +13,55 @@ const Engagements = () => {
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
     );
-    if (sectionRef.current) observer.observe(sectionRef.current);
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
     return () => observer.disconnect();
   }, []);
 
-  const engagementsList = [
-    { title: 'Collaborative', description: "Travail en co-construction, transparence." },
-    { title: 'Pragmatique', description: "Des solutions AI réalistes, exploitables." },
-    { title: 'Orientée résultats', description: "ROI mesurable, performance continue." },
+  const engagements = [
+    {
+      icon: '🤝',
+      title: 'Collaborative',
+      description: 'Travail en co-construction avec vos équipes, transparence totale sur les méthodes et les résultats à chaque étape.'
+    },
+    {
+      icon: '🎯',
+      title: 'Pragmatique',
+      description: "Des solutions IA réalistes et exploitables, pensées pour s'intégrer concrètement dans votre environnement métier."
+    },
+    {
+      icon: '📈',
+      title: 'Orientée résultats',
+      description: "ROI mesurable, performance continue et amélioration itérative pour garantir un impact durable sur votre activité."
+    }
   ];
 
   return (
-    <section className="section engagements" id="engagements" ref={sectionRef}>
+    <section className="section" id="engagements" ref={sectionRef}>
       <div className="container">
-        <h2 className="section-title">Nos engagements</h2>
-        <div className={`engagements-grid${isVisible ? ' visible' : ''}`}>
-          {engagementsList.map((item, idx) => (
-            <div key={idx} className="engagement-item">
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
+        <div className="section-header">
+          <div className="section-eyebrow">Notre philosophie</div>
+          <h2 className="section-title">Nos engagements</h2>
+          <p className="section-subtitle">
+            Chez Teranga IA, nous plaçons l'éthique, la transparence et la co-construction au cœur de chaque mission.
+          </p>
+        </div>
+
+        <div className="engagements-grid">
+          {engagements.map((engagement, index) => (
+            <div 
+              key={index} 
+              className={`engagement-card reveal ${isVisible ? 'visible' : ''}`}
+              style={{ transitionDelay: `${index * 0.1}s` }}
+            >
+              <div className="engagement-card-icon">{engagement.icon}</div>
+              <h3>{engagement.title}</h3>
+              <p>{engagement.description}</p>
             </div>
           ))}
         </div>

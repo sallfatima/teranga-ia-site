@@ -1,3 +1,4 @@
+// src/components/Formations.tsx
 import { useEffect, useRef, useState } from 'react';
 
 const Formations = () => {
@@ -12,32 +13,73 @@ const Formations = () => {
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
     );
-    if (sectionRef.current) observer.observe(sectionRef.current);
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
     return () => observer.disconnect();
   }, []);
 
-  const formationsList = [
-    "Initiation à l’intelligence artificielle et au machine learning",
-    "Perfectionnement : modélisation avancée, MLOps, IA éthique",
-    "Ateliers pratiques sur vos propres données",
+  const formations = [
+    {
+      level: 'Initiation',
+      levelClass: 'level-initiation',
+      title: "Introduction à l'IA & au Machine Learning",
+      description: "Comprendre les fondamentaux de l'IA, les types de modèles, et identifier les cas d'usage pertinents pour votre entreprise.",
+      duration: '2 jours',
+      format: 'Présentiel / Distanciel'
+    },
+    {
+      level: 'Perfectionnement',
+      levelClass: 'level-perfectionnement',
+      title: "Modélisation avancée, MLOps & IA éthique",
+      description: "Approfondir les techniques avancées de modélisation, l'industrialisation des modèles et les enjeux éthiques de l'IA.",
+      duration: '3 jours',
+      format: 'Présentiel / Distanciel'
+    },
+    {
+      level: 'Atelier pratique',
+      levelClass: 'level-pratique',
+      title: "Ateliers sur vos propres données",
+      description: "Sessions hands-on utilisant vos données réelles pour construire et déployer des modèles directement exploitables.",
+      duration: 'Sur mesure',
+      format: 'Dans vos locaux'
+    }
   ];
 
   return (
-    <section className="section formations" id="formations" ref={sectionRef}>
+    <section className="section" id="formations" ref={sectionRef}>
       <div className="container">
-        <h2 className="section-title">Formations IA</h2>
-        <p className={`section-subtitle${isVisible ? ' visible' : ''}`}>
-          Découvrez nos parcours de formation adaptés à tous les niveaux en
-          intelligence artificielle et machine learning.
-        </p>
+        <div className="section-header">
+          <div className="section-eyebrow">Montez en compétences</div>
+          <h2 className="section-title">Formations IA</h2>
+          <p className="section-subtitle">
+            Des parcours adaptés à tous les niveaux pour maîtriser l'intelligence artificielle et le machine learning.
+          </p>
+        </div>
 
-        <ul className={`formations-list${isVisible ? ' visible' : ''}`}>
-          {formationsList.map((item, idx) => (
-            <li key={idx}>{item}</li>
+        <div className="formations-grid">
+          {formations.map((formation, index) => (
+            <div 
+              key={index} 
+              className={`formation-card reveal ${isVisible ? 'visible' : ''}`}
+              style={{ transitionDelay: `${index * 0.1}s` }}
+            >
+              <span className={`formation-level ${formation.levelClass}`}>
+                {formation.level}
+              </span>
+              <h3>{formation.title}</h3>
+              <p>{formation.description}</p>
+              <div className="formation-meta">
+                <span>📅 {formation.duration}</span>
+                <span>👥 {formation.format}</span>
+              </div>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   );

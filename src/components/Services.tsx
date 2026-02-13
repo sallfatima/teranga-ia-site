@@ -1,3 +1,4 @@
+// src/components/Services.tsx
 import { useEffect, useRef, useState } from 'react';
 
 const Services = () => {
@@ -12,58 +13,67 @@ const Services = () => {
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
     );
+
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
+
     return () => observer.disconnect();
   }, []);
 
-  const servicesList = [
+  const services = [
     {
-      icon: '🧭',
-      title: "Définition de cas d'usage",
-      description: 'Identifier les opportunités IA/Machine Learning à fort impact.',
+      number: 1,
+      title: "🧭 Définition de cas d'usage",
+      description: "Identifier les opportunités IA/Machine Learning à fort impact pour votre activité, en alignement avec vos objectifs stratégiques."
     },
     {
-      icon: '🧹',
-      title: 'Traitement de données',
-      description: 'Collecter, nettoyer, structurer et valoriser vos données.',
+      number: 2,
+      title: "🧹 Traitement de données",
+      description: "Collecter, nettoyer, structurer et valoriser vos données pour en extraire tout le potentiel exploitable."
     },
     {
-      icon: '🧪',
-      title: 'Développement de modèles',
-      description: 'Entraîner, tester et évaluer des modèles de ML robustes.',
+      number: 3,
+      title: "🧪 Développement de modèles",
+      description: "Entraîner, tester et évaluer des modèles de machine learning robustes et performants adaptés à votre cas d'usage."
     },
     {
-      icon: '🔗',
-      title: 'Intégration métier',
-      description: 'Déployer des solutions IA via API, dashboards ou automatisations.',
+      number: 4,
+      title: "🔗 Intégration métier",
+      description: "Déployer les solutions IA via API, dashboards interactifs ou automatisations intégrées à vos workflows existants."
     },
     {
-      icon: '🔍',
-      title: 'Supervision & maintenance',
-      description: 'Suivi de performance, correction des dérives, évolutions continues.',
-    },
+      number: 5,
+      title: "🔍 Supervision & maintenance",
+      description: "Suivi de performance en continu, correction des dérives, et évolutions régulières pour garantir un ROI durable."
+    }
   ];
 
   return (
-    <section className="section services" id="services" ref={sectionRef}>
+    <section className="section" id="services" ref={sectionRef}>
       <div className="container">
-        <h2 className="section-title">Nos services</h2>
-        <p className="section-subtitle">
-          Nous intervenons sur l'ensemble du cycle de vie d'un projet IA :
-        </p>
+        <div className="section-header">
+          <div className="section-eyebrow">Notre approche</div>
+          <h2 className="section-title">Un processus éprouvé, de bout en bout</h2>
+          <p className="section-subtitle">
+            De la définition du besoin au run en production, nous vous accompagnons à chaque étape.
+          </p>
+        </div>
 
-        <div className={`services-grid${isVisible ? ' visible' : ''}`}>
-          {servicesList.map((service, index) => (
-            <div key={index} className="service-item">
-              <h3>
-                <span className="service-icon">{service.icon}</span>
-                {service.title}
-              </h3>
-              <p>{service.description}</p>
+        <div className="services-timeline">
+          {services.map((service, index) => (
+            <div 
+              key={index} 
+              className={`service-step reveal ${isVisible ? 'visible' : ''}`}
+              style={{ transitionDelay: `${index * 0.1}s` }}
+            >
+              <div className="step-number">{service.number}</div>
+              <div className="step-content">
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+              </div>
             </div>
           ))}
         </div>
