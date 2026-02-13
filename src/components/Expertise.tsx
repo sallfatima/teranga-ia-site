@@ -31,7 +31,7 @@ const Expertise = () => {
     {
       icon: '🧠',
       title: 'Machine Learning',
-      description: 'Modèles prédictifs, classification, régression, clustering et détection d\'anomalies pour tous vos besoins métiers.',
+      description: "Modèles prédictifs, classification, régression, clustering et détection d'anomalies pour tous vos besoins métiers.",
       tags: ['Scikit-learn', 'TensorFlow', 'PyTorch']
     },
     {
@@ -51,18 +51,15 @@ const Expertise = () => {
   return (
     <section className="section expertise" id="expertise" ref={sectionRef}>
       <div className="container">
-        <h2 className="section-title">Notre expertise</h2>
+        <p className="section-eyebrow">Nos domaines d'expertise</p>
+        <h2 className="section-title">Technologies & Compétences</h2>
         <p className="section-subtitle">
           Une expertise technique pointue au service de vos projets IA et data science.
         </p>
 
         <div className={`expertise-grid ${isVisible ? 'visible' : ''}`}>
           {expertises.map((expertise, index) => (
-            <div 
-              key={index} 
-              className="expertise-card"
-              style={{ transitionDelay: `${index * 0.1}s` }}
-            >
+            <div key={index} className="expertise-card">
               <div className="expertise-icon">{expertise.icon}</div>
               <h3>{expertise.title}</h3>
               <p>{expertise.description}</p>

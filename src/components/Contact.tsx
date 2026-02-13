@@ -45,6 +45,7 @@ const Contact = () => {
   return (
     <section className="section contact" id="contact" ref={sectionRef}>
       <div className="container">
+        <p className="section-eyebrow">Parlons de votre projet</p>
         <h2 className="section-title">Contact</h2>
         <p className="section-subtitle">
           Envie d'échanger sur un projet, une idée, ou un besoin de formation ? Contactez-nous.

@@ -1,12 +1,10 @@
 :root {
   --color-primary: #162CF8;
-  --color-secondary: #ffffff;
+  --color-primary-dark: #0915C0;
   --color-accent: #F63D15;
   --color-accent-warm: #E2A31B;
+  --color-dark: #0a0e27;
   --color-gray: #666666;
   --font-primary: 'Roboto', sans-serif;
-  --spacing-base: 1rem;
-  --spacing-sm: 0.5rem;
-  --spacing-lg: 2rem;
-  --container-max-width: 1200px;
+  --container-max-width: 1140px;
 }

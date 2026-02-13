@@ -54,6 +54,7 @@ const Projets = () => {
   return (
     <section className="section projets" id="projets" ref={sectionRef}>
       <div className="container">
+        <p className="section-eyebrow">Cas d'usage</p>
         <h2 className="section-title">Projets réalisés</h2>
         <p className="section-subtitle">
           Découvrez comment nous avons aidé nos clients à concrétiser leurs ambitions IA.
@@ -61,11 +62,7 @@ const Projets = () => {
 
         <div className={`projets-grid ${isVisible ? 'visible' : ''}`}>
           {projets.map((projet, index) => (
-            <div 
-              key={index} 
-              className="projet-card"
-              style={{ transitionDelay: `${index * 0.1}s` }}
-            >
+            <div key={index} className="projet-card">
               <span className="projet-tag">{projet.tag}</span>
               <h3>{projet.title}</h3>
               <p>{projet.description}</p>

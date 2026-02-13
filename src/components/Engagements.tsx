@@ -23,31 +23,35 @@ const Engagements = () => {
 
   const engagements = [
     {
+      icon: '🤝',
       title: 'Collaborative',
-      description: 'Travail en co-construction avec vos équipes, transparence totale sur les méthodes et les résultats.'
+      description: 'Travail en co-construction avec vos équipes, transparence totale sur les méthodes et les résultats à chaque étape.'
     },
     {
+      icon: '🎯',
       title: 'Pragmatique',
       description: "Des solutions IA réalistes et exploitables, pensées pour s'intégrer concrètement dans votre environnement métier."
     },
     {
+      icon: '📈',
       title: 'Orientée résultats',
-      description: "ROI mesurable, performance continue et amélioration itérative pour garantir un impact durable."
+      description: "ROI mesurable, performance continue et amélioration itérative pour garantir un impact durable sur votre activité."
     }
   ];
 
   return (
     <section className="section engagements" id="engagements" ref={sectionRef}>
       <div className="container">
-        <h2 className="section-title">Nos engagements</h2>
+        <p className="section-eyebrow-light">Notre philosophie</p>
+        <h2 className="section-title-light">Nos engagements</h2>
+        <p className="section-subtitle-light">
+          Chez Teranga IA, nous plaçons l'éthique, la transparence et la co-construction au cœur de chaque mission.
+        </p>
         
         <div className={`engagements-grid ${isVisible ? 'visible' : ''}`}>
           {engagements.map((engagement, index) => (
-            <div 
-              key={index} 
-              className="engagement-item"
-              style={{ transitionDelay: `${index * 0.1}s` }}
-            >
+            <div key={index} className="engagement-item">
+              <div className="engagement-icon">{engagement.icon}</div>
               <h3>{engagement.title}</h3>
               <p>{engagement.description}</p>
             </div>

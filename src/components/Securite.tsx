@@ -21,7 +21,7 @@ const Securite = () => {
     return () => observer.disconnect();
   }, []);
 
-  const securiteItems = [
+  const items = [
     {
       icon: '🏢',
       title: 'Hébergement sécurisé',
@@ -47,18 +47,15 @@ const Securite = () => {
   return (
     <section className="section securite" id="securite" ref={sectionRef}>
       <div className="container">
+        <p className="section-eyebrow">Sécurité & conformité</p>
         <h2 className="section-title">Vos données, vos règles</h2>
         <p className="section-subtitle">
           Nous garantissons la protection de vos données et le respect des réglementations en vigueur.
         </p>
 
         <div className={`sec-grid ${isVisible ? 'visible' : ''}`}>
-          {securiteItems.map((item, index) => (
-            <div 
-              key={index} 
-              className="sec-card"
-              style={{ transitionDelay: `${index * 0.05}s` }}
-            >
+          {items.map((item, index) => (
+            <div key={index} className="sec-card">
               <div className="sec-ic">{item.icon}</div>
               <h3>{item.title}</h3>
               <p>{item.description}</p>

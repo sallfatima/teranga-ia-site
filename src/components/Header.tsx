@@ -18,11 +18,7 @@ const Header = () => {
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <nav className="nav">
         <Link href="/" className="logo">
-          <img
-            src="/images/logo.png"
-            alt="Logo Teranga IA"
-            style={{ height: '40px', width: 'auto' }}
-          />
+          <div className="logo-dot">T</div>
           <span>Teranga IA</span>
         </Link>
 
@@ -33,11 +29,10 @@ const Header = () => {
           <li><Link href="#offres" className="nav-link">Offres</Link></li>
           <li><Link href="#services" className="nav-link">Services</Link></li>
           <li><Link href="#formations" className="nav-link">Formations</Link></li>
-          <li><Link href="#engagements" className="nav-link">Nos engagements</Link></li>
         </ul>
 
         <Link href="#contact" className="cta-button">
-          Nous contacter
+          Contact
         </Link>
 
         <button 

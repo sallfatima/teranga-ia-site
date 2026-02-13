@@ -24,41 +24,38 @@ const Gains = () => {
   const benefices = [
     {
       icon: '⚡',
-      title: 'Gain de productivité',
-      description: "Automatisez les tâches répétitives et libérez vos équipes pour des missions à forte valeur ajoutée."
+      title: 'Productivité décuplée',
+      description: "Automatisez les tâches répétitives et libérez vos équipes pour des missions à forte valeur ajoutée. Gagnez jusqu'à 40% de temps sur vos processus clés."
     },
     {
-      icon: '📊',
+      icon: '💡',
       title: 'Décisions éclairées',
-      description: "Exploitez vos données pour anticiper les tendances et prendre des décisions stratégiques basées sur des prévisions fiables."
+      description: "Exploitez vos données pour anticiper les tendances, détecter les anomalies et optimiser vos stratégies en temps réel grâce au machine learning."
     },
     {
       icon: '🎯',
-      title: 'Expérience client optimale',
-      description: "Personnalisez les parcours clients avec des chatbots intelligents et des recommandations contextuelles."
+      title: 'Expérience client enrichie',
+      description: "Personnalisez vos interactions, recommandez les bons produits et répondez instantanément grâce à des agents IA conversationnels performants."
     }
   ];
 
   return (
     <section className="section gains" id="gains" ref={sectionRef}>
       <div className="container">
-        <h2 className="section-title">Bénéfices</h2>
+        <p className="section-eyebrow">Pourquoi l'IA maintenant</p>
+        <h2 className="section-title">Les bénéfices concrets de l'IA</h2>
         <p className="section-subtitle">
-          Des résultats mesurables pour votre entreprise grâce à l'intelligence artificielle.
+          L'intelligence artificielle n'est plus un luxe, c'est un levier essentiel pour rester compétitif.
         </p>
 
         <div className={`presentation-grid ${isVisible ? 'visible' : ''}`}>
           {benefices.map((benefice, index) => (
-            <div 
-              key={index} 
-              className="presentation-card"
-              style={{ transitionDelay: `${index * 0.1}s` }}
-            >
+            <div key={index} className="presentation-card">
               <div className="card-header">
                 <span className="card-icon">{benefice.icon}</span>
                 <h3>{benefice.title}</h3>
               </div>
-              <p style={{ color: '#666', lineHeight: '1.7' }}>{benefice.description}</p>
+              <p>{benefice.description}</p>
             </div>
           ))}
         </div>

@@ -66,18 +66,15 @@ const Offres = () => {
   return (
     <section className="section offres" id="offres" ref={sectionRef}>
       <div className="container">
-        <h2 className="section-title">Nos offres</h2>
+        <p className="section-eyebrow">Nos offres</p>
+        <h2 className="section-title">Offres adaptées à vos besoins</h2>
         <p className="section-subtitle">
           Du diagnostic stratégique à l'industrialisation complète, nous vous accompagnons à chaque étape.
         </p>
 
         <div className={`offres-grid ${isVisible ? 'visible' : ''}`}>
           {offres.map((offre, index) => (
-            <div 
-              key={index} 
-              className="offre-card"
-              style={{ transitionDelay: `${index * 0.1}s` }}
-            >
+            <div key={index} className="offre-card">
               <div className="offre-header">
                 <div className="offre-icon">{offre.icon}</div>
                 <h3>{offre.title}</h3>
