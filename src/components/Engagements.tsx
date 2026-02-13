@@ -13,11 +13,13 @@ const Engagements = () => {
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
     );
+
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
+
     return () => observer.disconnect();
   }, []);
 
@@ -40,18 +42,24 @@ const Engagements = () => {
   ];
 
   return (
-    <section className="section engagements" id="engagements" ref={sectionRef}>
+    <section className="section" id="engagements" ref={sectionRef}>
       <div className="container">
-        <p className="section-eyebrow-light">Notre philosophie</p>
-        <h2 className="section-title-light">Nos engagements</h2>
-        <p className="section-subtitle-light">
-          Chez Teranga IA, nous plaçons l'éthique, la transparence et la co-construction au cœur de chaque mission.
-        </p>
-        
-        <div className={`engagements-grid ${isVisible ? 'visible' : ''}`}>
+        <div className="section-header">
+          <div className="section-eyebrow">Notre philosophie</div>
+          <h2 className="section-title">Nos engagements</h2>
+          <p className="section-subtitle">
+            Chez Teranga IA, nous plaçons l'éthique, la transparence et la co-construction au cœur de chaque mission.
+          </p>
+        </div>
+
+        <div className="engagements-grid">
           {engagements.map((engagement, index) => (
-            <div key={index} className="engagement-item">
-              <div className="engagement-icon">{engagement.icon}</div>
+            <div 
+              key={index} 
+              className={`engagement-card reveal ${isVisible ? 'visible' : ''}`}
+              style={{ transitionDelay: `${index * 0.1}s` }}
+            >
+              <div className="engagement-card-icon">{engagement.icon}</div>
               <h3>{engagement.title}</h3>
               <p>{engagement.description}</p>
             </div>

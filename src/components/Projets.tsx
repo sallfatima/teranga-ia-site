@@ -13,11 +13,13 @@ const Projets = () => {
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
     );
+
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
+
     return () => observer.disconnect();
   }, []);
 
@@ -52,17 +54,23 @@ const Projets = () => {
   ];
 
   return (
-    <section className="section projets" id="projets" ref={sectionRef}>
+    <section className="section" id="projets" ref={sectionRef}>
       <div className="container">
-        <p className="section-eyebrow">Cas d'usage</p>
-        <h2 className="section-title">Projets réalisés</h2>
-        <p className="section-subtitle">
-          Découvrez comment nous avons aidé nos clients à concrétiser leurs ambitions IA.
-        </p>
+        <div className="section-header">
+          <div className="section-eyebrow">Cas d'usage</div>
+          <h2 className="section-title">Projets réalisés</h2>
+          <p className="section-subtitle">
+            Découvrez comment nous avons aidé nos clients à concrétiser leurs ambitions IA.
+          </p>
+        </div>
 
-        <div className={`projets-grid ${isVisible ? 'visible' : ''}`}>
+        <div className="projets-grid">
           {projets.map((projet, index) => (
-            <div key={index} className="projet-card">
+            <div 
+              key={index} 
+              className={`projet-card reveal ${isVisible ? 'visible' : ''}`}
+              style={{ transitionDelay: `${index * 0.1}s` }}
+            >
               <span className="projet-tag">{projet.tag}</span>
               <h3>{projet.title}</h3>
               <p>{projet.description}</p>

@@ -1,5 +1,6 @@
 // src/components/Hero.tsx
 import { useEffect, useState } from 'react';
+import styles from '../styles/Hero.module.css';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -16,45 +17,55 @@ const Hero = () => {
   };
 
   return (
-    <section className="hero" id="accueil">
-      <div className="floating-element" style={{ top: '20%', left: '10%' }}>🤖</div>
-      <div className="floating-element" style={{ top: '60%', right: '10%' }}>⚡</div>
-      <div className="floating-element" style={{ bottom: '20%', left: '20%' }}>🔬</div>
+    <section className={styles.hero} id="accueil">
+      {/* Background elements */}
+      <div className={styles.heroGrid}></div>
+      <div className={`${styles.heroOrb} ${styles.heroOrb1}`}></div>
+      <div className={`${styles.heroOrb} ${styles.heroOrb2}`}></div>
 
-      <div className={`hero-content ${isVisible ? 'visible' : ''}`}>
-        <div className="hero-badge">
-          <span className="badge-dot"></span>
+      <div className={styles.container}>
+        <div className={styles.heroBadge}>
+          <span className={styles.badgeDot}></span>
           Solutions IA en production
         </div>
-        
-        <h1>Transformez vos données en avantage compétitif avec l'IA</h1>
-        
-        <p>
+
+        <h1 className={styles.heroTitle}>
+          Transformez vos données en{' '}
+          <span className={styles.gradientText}>avantage compétitif</span> avec l'IA
+        </h1>
+
+        <p className={styles.heroDesc}>
           Nous accompagnons les entreprises dans la conception, le développement et 
           l'intégration de solutions IA et machine learning — LLM/RAG, agents IA, 
           data pipelines, modèles prédictifs et formations sur mesure.
         </p>
 
-        <div className="hero-buttons">
-          <button className="cta-button" onClick={() => scrollToSection('contact')}>
+        <div className={styles.heroButtons}>
+          <button 
+            className={styles.btnCtaWhite}
+            onClick={() => scrollToSection('contact')}
+          >
             Réserver un diagnostic gratuit →
           </button>
-          <button className="btn-secondary" onClick={() => scrollToSection('projets')}>
+          <button 
+            className={styles.btnCtaGhost}
+            onClick={() => scrollToSection('projets')}
+          >
             Voir nos projets
           </button>
         </div>
 
-        <div className="hero-trust">
-          <div className="trust-item">
-            <span className="trust-icon">🚀</span>
+        <div className={styles.heroTrust}>
+          <div className={styles.trustItem}>
+            <div className={styles.trustIcon}>🚀</div>
             <span>Du POC à la prod en 8-12 semaines</span>
           </div>
-          <div className="trust-item">
-            <span className="trust-icon">🔒</span>
+          <div className={styles.trustItem}>
+            <div className={styles.trustIcon}>🔒</div>
             <span>Conformité RGPD & sécurité garanties</span>
           </div>
-          <div className="trust-item">
-            <span className="trust-icon">📈</span>
+          <div className={styles.trustItem}>
+            <div className={styles.trustIcon}>📈</div>
             <span>ROI mesurable dès 3 mois</span>
           </div>
         </div>

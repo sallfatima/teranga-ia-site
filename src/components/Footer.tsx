@@ -1,18 +1,18 @@
 // src/components/Footer.tsx
+import styles from '../styles/Footer.module.css';
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="container">
-        <div className="footer-top">
-          <div className="footer-brand">
-            <div className="footer-logo">Teranga IA</div>
-            <p className="footer-tagline">
+    <footer className={styles.footer}>
+      <div className={styles.container}>
+        <div className={styles.footerTop}>
+          <div>
+            <div className={styles.footerBrand}>Teranga IA</div>
+            <p className={styles.footerTagline}>
               Solutions IA en production — LLM/RAG, agents, pipelines, modèles prédictifs et formations sur mesure.
             </p>
           </div>
-          
-          <nav className="footer-links">
+          <nav className={styles.footerLinks}>
             <a href="#gains">Bénéfices</a>
             <a href="#expertise">Expertise</a>
             <a href="#projets">Projets</a>
@@ -23,9 +23,11 @@ const Footer = () => {
           </nav>
         </div>
 
-        <div className="footer-bottom">
-          <p>© {new Date().getFullYear()} Teranga IA. Tous droits réservés.</p>
-          <div className="footer-socials">
+        <div className={styles.footerBottom}>
+          <span className={styles.footerCopy}>
+            © {new Date().getFullYear()} Teranga IA. Tous droits réservés.
+          </span>
+          <div className={styles.footerSocials}>
             <a 
               href="https://www.linkedin.com/company/94286455" 
               target="_blank" 

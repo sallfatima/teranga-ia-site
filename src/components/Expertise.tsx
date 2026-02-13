@@ -13,11 +13,13 @@ const Expertise = () => {
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
     );
+
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
+
     return () => observer.disconnect();
   }, []);
 
@@ -31,7 +33,7 @@ const Expertise = () => {
     {
       icon: '🧠',
       title: 'Machine Learning',
-      description: "Modèles prédictifs, classification, régression, clustering et détection d'anomalies pour tous vos besoins métiers.",
+      description: 'Modèles prédictifs, classification, régression, clustering et détection d\'anomalies pour tous vos besoins métiers.',
       tags: ['Scikit-learn', 'TensorFlow', 'PyTorch']
     },
     {
@@ -49,17 +51,28 @@ const Expertise = () => {
   ];
 
   return (
-    <section className="section expertise" id="expertise" ref={sectionRef}>
+    <section 
+      className="section" 
+      id="expertise" 
+      ref={sectionRef}
+      style={{ background: 'var(--surface-alt)' }}
+    >
       <div className="container">
-        <p className="section-eyebrow">Nos domaines d'expertise</p>
-        <h2 className="section-title">Technologies & Compétences</h2>
-        <p className="section-subtitle">
-          Une expertise technique pointue au service de vos projets IA et data science.
-        </p>
+        <div className="section-header">
+          <div className="section-eyebrow">Nos domaines d'expertise</div>
+          <h2 className="section-title">Technologies & Compétences</h2>
+          <p className="section-subtitle">
+            Une expertise technique pointue au service de vos projets IA et data science.
+          </p>
+        </div>
 
-        <div className={`expertise-grid ${isVisible ? 'visible' : ''}`}>
+        <div className="expertise-grid">
           {expertises.map((expertise, index) => (
-            <div key={index} className="expertise-card">
+            <div 
+              key={index} 
+              className={`expertise-card reveal ${isVisible ? 'visible' : ''}`}
+              style={{ transitionDelay: `${index * 0.1}s` }}
+            >
               <div className="expertise-icon">{expertise.icon}</div>
               <h3>{expertise.title}</h3>
               <p>{expertise.description}</p>

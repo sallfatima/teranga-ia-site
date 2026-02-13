@@ -13,11 +13,13 @@ const Offres = () => {
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
     );
+
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
+
     return () => observer.disconnect();
   }, []);
 
@@ -64,17 +66,28 @@ const Offres = () => {
   ];
 
   return (
-    <section className="section offres" id="offres" ref={sectionRef}>
+    <section 
+      className="section" 
+      id="offres" 
+      ref={sectionRef}
+      style={{ background: 'var(--surface-alt)' }}
+    >
       <div className="container">
-        <p className="section-eyebrow">Nos offres</p>
-        <h2 className="section-title">Offres adaptées à vos besoins</h2>
-        <p className="section-subtitle">
-          Du diagnostic stratégique à l'industrialisation complète, nous vous accompagnons à chaque étape.
-        </p>
+        <div className="section-header">
+          <div className="section-eyebrow">Nos offres</div>
+          <h2 className="section-title">Offres adaptées à vos besoins</h2>
+          <p className="section-subtitle">
+            Du diagnostic stratégique à l'industrialisation complète, nous vous accompagnons à chaque étape.
+          </p>
+        </div>
 
-        <div className={`offres-grid ${isVisible ? 'visible' : ''}`}>
+        <div className="offres-grid">
           {offres.map((offre, index) => (
-            <div key={index} className="offre-card">
+            <div 
+              key={index} 
+              className={`offre-card reveal ${isVisible ? 'visible' : ''}`}
+              style={{ transitionDelay: `${index * 0.1}s` }}
+            >
               <div className="offre-header">
                 <div className="offre-icon">{offre.icon}</div>
                 <h3>{offre.title}</h3>

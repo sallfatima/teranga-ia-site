@@ -13,15 +13,17 @@ const Gains = () => {
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
     );
+
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
+
     return () => observer.disconnect();
   }, []);
 
-  const benefices = [
+  const gains = [
     {
       icon: '⚡',
       title: 'Productivité décuplée',
@@ -40,22 +42,26 @@ const Gains = () => {
   ];
 
   return (
-    <section className="section gains" id="gains" ref={sectionRef}>
+    <section className="section" id="gains" ref={sectionRef}>
       <div className="container">
-        <p className="section-eyebrow">Pourquoi l'IA maintenant</p>
-        <h2 className="section-title">Les bénéfices concrets de l'IA</h2>
-        <p className="section-subtitle">
-          L'intelligence artificielle n'est plus un luxe, c'est un levier essentiel pour rester compétitif.
-        </p>
+        <div className="section-header">
+          <div className="section-eyebrow">Pourquoi l'IA maintenant</div>
+          <h2 className="section-title">Les bénéfices concrets de l'IA</h2>
+          <p className="section-subtitle">
+            L'intelligence artificielle n'est plus un luxe, c'est un levier essentiel pour rester compétitif.
+          </p>
+        </div>
 
-        <div className={`presentation-grid ${isVisible ? 'visible' : ''}`}>
-          {benefices.map((benefice, index) => (
-            <div key={index} className="presentation-card">
-              <div className="card-header">
-                <span className="card-icon">{benefice.icon}</span>
-                <h3>{benefice.title}</h3>
-              </div>
-              <p>{benefice.description}</p>
+        <div className="gains-grid">
+          {gains.map((gain, index) => (
+            <div 
+              key={index} 
+              className={`gain-card reveal ${isVisible ? 'visible' : ''}`}
+              style={{ transitionDelay: `${index * 0.1}s` }}
+            >
+              <div className="gain-icon">{gain.icon}</div>
+              <h3>{gain.title}</h3>
+              <p>{gain.description}</p>
             </div>
           ))}
         </div>
