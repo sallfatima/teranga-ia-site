@@ -36,7 +36,7 @@ const Hero = () => {
 
         <p className={styles.heroDesc}>
           Nous accompagnons les entreprises dans la conception, le développement et 
-          l'intégration de solutions IA et machine learning — LLM/RAG, agents IA, 
+          l'intégration de solutions IA et machine learning - LLM/RAG, agents IA, 
           data pipelines, modèles prédictifs et formations sur mesure.
         </p>
 

@@ -9,7 +9,7 @@ const Footer = () => {
           <div>
             <div className={styles.footerBrand}>Teranga IA</div>
             <p className={styles.footerTagline}>
-              Solutions IA en production — LLM/RAG, agents, pipelines, modèles prédictifs et formations sur mesure.
+              Solutions IA en production - LLM/RAG, agents, pipelines, modèles prédictifs et formations sur mesure.
             </p>
           </div>
           <nav className={styles.footerLinks}>

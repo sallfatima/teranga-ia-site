@@ -19,16 +19,16 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Teranga IA — L'IA au service de la performance et de la croissance durable</title>
+        <title>Teranga IA - L'IA au service de la performance et de la croissance durable</title>
         <meta
           name="description"
-          content="Teranga IA conçoit et intègre des solutions LLM/RAG, agents IA, data pipelines, modèles prédictifs et formations — du cadrage à l'industrialisation."
+          content="Teranga IA conçoit et intègre des solutions LLM/RAG, agents IA, data pipelines, modèles prédictifs et formations - du cadrage à l'industrialisation."
         />
         <meta 
           name="keywords" 
           content="intelligence artificielle, machine learning, IA, conseil, formation, LLM, RAG, agents IA, données, entreprise" 
         />
-        <meta property="og:title" content="Teranga IA — Solutions IA en production" />
+        <meta property="og:title" content="Teranga IA - Solutions IA en production" />
         <meta 
           property="og:description" 
           content="Solutions IA sur mesure pour transformer vos données en leviers de performance et de croissance durable." 

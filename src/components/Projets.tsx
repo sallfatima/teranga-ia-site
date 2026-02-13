@@ -27,7 +27,7 @@ const Projets = () => {
     {
       tag: 'LLM/RAG',
       title: 'Assistant virtuel RH',
-      description: "Chatbot intelligent capable de répondre aux questions des employés sur les politiques internes, congés, formations — en s'appuyant sur une base documentaire structurée.",
+      description: "Chatbot intelligent capable de répondre aux questions des employés sur les politiques internes, congés, formations - en s'appuyant sur une base documentaire structurée.",
       metrics: [
         { value: '-60%', label: 'Tickets support' },
         { value: '24/7', label: 'Disponibilité' }

@@ -27,10 +27,9 @@ const Header = () => {
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={styles.container}>
         <Link href="/" className={styles.headerLogo}>
-          <div className={styles.logoDot}>T</div>
+          <img src="/images/logo.png" alt="Teranga IA" className={styles.logoImg} />
           <span>Teranga IA</span>
         </Link>
-
         <nav className={`${styles.navLinks} ${isMobileMenuOpen ? styles.navLinksOpen : ''}`}>
           <Link href="#gains" onClick={closeMobileMenu}>Bénéfices</Link>
           <Link href="#expertise" onClick={closeMobileMenu}>Expertise</Link>
