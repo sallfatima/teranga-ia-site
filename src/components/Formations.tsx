@@ -13,13 +13,11 @@ const Formations = () => {
           observer.disconnect();
         }
       },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      { threshold: 0.1 }
     );
-
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-
     return () => observer.disconnect();
   }, []);
 
@@ -51,21 +49,18 @@ const Formations = () => {
   ];
 
   return (
-    <section className="section" id="formations" ref={sectionRef}>
+    <section className="section formations" id="formations" ref={sectionRef}>
       <div className="container">
-        <div className="section-header">
-          <div className="section-eyebrow">Montez en compétences</div>
-          <h2 className="section-title">Formations IA</h2>
-          <p className="section-subtitle">
-            Des parcours adaptés à tous les niveaux pour maîtriser l'intelligence artificielle et le machine learning.
-          </p>
-        </div>
+        <h2 className="section-title">Formations IA</h2>
+        <p className="section-subtitle">
+          Des parcours adaptés à tous les niveaux pour maîtriser l'intelligence artificielle et le machine learning.
+        </p>
 
-        <div className="formations-grid">
+        <div className={`formations-grid ${isVisible ? 'visible' : ''}`}>
           {formations.map((formation, index) => (
             <div 
               key={index} 
-              className={`formation-card reveal ${isVisible ? 'visible' : ''}`}
+              className="formation-card"
               style={{ transitionDelay: `${index * 0.1}s` }}
             >
               <span className={`formation-level ${formation.levelClass}`}>

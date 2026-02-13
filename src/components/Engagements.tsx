@@ -13,53 +13,41 @@ const Engagements = () => {
           observer.disconnect();
         }
       },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      { threshold: 0.1 }
     );
-
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-
     return () => observer.disconnect();
   }, []);
 
   const engagements = [
     {
-      icon: '🤝',
       title: 'Collaborative',
-      description: 'Travail en co-construction avec vos équipes, transparence totale sur les méthodes et les résultats à chaque étape.'
+      description: 'Travail en co-construction avec vos équipes, transparence totale sur les méthodes et les résultats.'
     },
     {
-      icon: '🎯',
       title: 'Pragmatique',
       description: "Des solutions IA réalistes et exploitables, pensées pour s'intégrer concrètement dans votre environnement métier."
     },
     {
-      icon: '📈',
       title: 'Orientée résultats',
-      description: "ROI mesurable, performance continue et amélioration itérative pour garantir un impact durable sur votre activité."
+      description: "ROI mesurable, performance continue et amélioration itérative pour garantir un impact durable."
     }
   ];
 
   return (
-    <section className="section" id="engagements" ref={sectionRef}>
+    <section className="section engagements" id="engagements" ref={sectionRef}>
       <div className="container">
-        <div className="section-header">
-          <div className="section-eyebrow">Notre philosophie</div>
-          <h2 className="section-title">Nos engagements</h2>
-          <p className="section-subtitle">
-            Chez Teranga IA, nous plaçons l'éthique, la transparence et la co-construction au cœur de chaque mission.
-          </p>
-        </div>
-
-        <div className="engagements-grid">
+        <h2 className="section-title">Nos engagements</h2>
+        
+        <div className={`engagements-grid ${isVisible ? 'visible' : ''}`}>
           {engagements.map((engagement, index) => (
             <div 
               key={index} 
-              className={`engagement-card reveal ${isVisible ? 'visible' : ''}`}
+              className="engagement-item"
               style={{ transitionDelay: `${index * 0.1}s` }}
             >
-              <div className="engagement-card-icon">{engagement.icon}</div>
               <h3>{engagement.title}</h3>
               <p>{engagement.description}</p>
             </div>

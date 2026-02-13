@@ -13,13 +13,11 @@ const Expertise = () => {
           observer.disconnect();
         }
       },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      { threshold: 0.1 }
     );
-
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-
     return () => observer.disconnect();
   }, []);
 
@@ -51,26 +49,18 @@ const Expertise = () => {
   ];
 
   return (
-    <section 
-      className="section" 
-      id="expertise" 
-      ref={sectionRef}
-      style={{ background: 'var(--surface-alt)' }}
-    >
+    <section className="section expertise" id="expertise" ref={sectionRef}>
       <div className="container">
-        <div className="section-header">
-          <div className="section-eyebrow">Nos domaines d'expertise</div>
-          <h2 className="section-title">Technologies & Compétences</h2>
-          <p className="section-subtitle">
-            Une expertise technique pointue au service de vos projets IA et data science.
-          </p>
-        </div>
+        <h2 className="section-title">Notre expertise</h2>
+        <p className="section-subtitle">
+          Une expertise technique pointue au service de vos projets IA et data science.
+        </p>
 
-        <div className="expertise-grid">
+        <div className={`expertise-grid ${isVisible ? 'visible' : ''}`}>
           {expertises.map((expertise, index) => (
             <div 
               key={index} 
-              className={`expertise-card reveal ${isVisible ? 'visible' : ''}`}
+              className="expertise-card"
               style={{ transitionDelay: `${index * 0.1}s` }}
             >
               <div className="expertise-icon">{expertise.icon}</div>

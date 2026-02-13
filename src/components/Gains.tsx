@@ -13,55 +13,52 @@ const Gains = () => {
           observer.disconnect();
         }
       },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      { threshold: 0.1 }
     );
-
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-
     return () => observer.disconnect();
   }, []);
 
-  const gains = [
+  const benefices = [
     {
       icon: '⚡',
-      title: 'Productivité décuplée',
-      description: "Automatisez les tâches répétitives et libérez vos équipes pour des missions à forte valeur ajoutée. Gagnez jusqu'à 40% de temps sur vos processus clés."
+      title: 'Gain de productivité',
+      description: "Automatisez les tâches répétitives et libérez vos équipes pour des missions à forte valeur ajoutée."
     },
     {
-      icon: '💡',
+      icon: '📊',
       title: 'Décisions éclairées',
-      description: "Exploitez vos données pour anticiper les tendances, détecter les anomalies et optimiser vos stratégies en temps réel grâce au machine learning."
+      description: "Exploitez vos données pour anticiper les tendances et prendre des décisions stratégiques basées sur des prévisions fiables."
     },
     {
       icon: '🎯',
-      title: 'Expérience client enrichie',
-      description: "Personnalisez vos interactions, recommandez les bons produits et répondez instantanément grâce à des agents IA conversationnels performants."
+      title: 'Expérience client optimale',
+      description: "Personnalisez les parcours clients avec des chatbots intelligents et des recommandations contextuelles."
     }
   ];
 
   return (
-    <section className="section" id="gains" ref={sectionRef}>
+    <section className="section gains" id="gains" ref={sectionRef}>
       <div className="container">
-        <div className="section-header">
-          <div className="section-eyebrow">Pourquoi l'IA maintenant</div>
-          <h2 className="section-title">Les bénéfices concrets de l'IA</h2>
-          <p className="section-subtitle">
-            L'intelligence artificielle n'est plus un luxe, c'est un levier essentiel pour rester compétitif.
-          </p>
-        </div>
+        <h2 className="section-title">Bénéfices</h2>
+        <p className="section-subtitle">
+          Des résultats mesurables pour votre entreprise grâce à l'intelligence artificielle.
+        </p>
 
-        <div className="gains-grid">
-          {gains.map((gain, index) => (
+        <div className={`presentation-grid ${isVisible ? 'visible' : ''}`}>
+          {benefices.map((benefice, index) => (
             <div 
               key={index} 
-              className={`gain-card reveal ${isVisible ? 'visible' : ''}`}
+              className="presentation-card"
               style={{ transitionDelay: `${index * 0.1}s` }}
             >
-              <div className="gain-icon">{gain.icon}</div>
-              <h3>{gain.title}</h3>
-              <p>{gain.description}</p>
+              <div className="card-header">
+                <span className="card-icon">{benefice.icon}</span>
+                <h3>{benefice.title}</h3>
+              </div>
+              <p style={{ color: '#666', lineHeight: '1.7' }}>{benefice.description}</p>
             </div>
           ))}
         </div>

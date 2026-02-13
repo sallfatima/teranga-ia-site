@@ -13,13 +13,11 @@ const Securite = () => {
           observer.disconnect();
         }
       },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      { threshold: 0.1 }
     );
-
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-
     return () => observer.disconnect();
   }, []);
 
@@ -47,26 +45,18 @@ const Securite = () => {
   ];
 
   return (
-    <section 
-      className="section" 
-      id="securite" 
-      ref={sectionRef}
-      style={{ background: 'var(--surface-alt)' }}
-    >
+    <section className="section securite" id="securite" ref={sectionRef}>
       <div className="container">
-        <div className="section-header">
-          <div className="section-eyebrow">Sécurité & conformité</div>
-          <h2 className="section-title">Vos données, vos règles</h2>
-          <p className="section-subtitle">
-            Nous garantissons la protection de vos données et le respect des réglementations en vigueur.
-          </p>
-        </div>
+        <h2 className="section-title">Vos données, vos règles</h2>
+        <p className="section-subtitle">
+          Nous garantissons la protection de vos données et le respect des réglementations en vigueur.
+        </p>
 
-        <div className="sec-grid">
+        <div className={`sec-grid ${isVisible ? 'visible' : ''}`}>
           {securiteItems.map((item, index) => (
             <div 
               key={index} 
-              className={`sec-card reveal ${isVisible ? 'visible' : ''}`}
+              className="sec-card"
               style={{ transitionDelay: `${index * 0.05}s` }}
             >
               <div className="sec-ic">{item.icon}</div>

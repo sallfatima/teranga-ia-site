@@ -1,44 +1,12 @@
-/* ══════════════════════════════════════════════
-   CSS VARIABLES - Nouvelle charte graphique Teranga IA
-══════════════════════════════════════════════ */
 :root {
-  /* Couleurs principales */
-  --primary: #0D1BF2;
-  --primary-dark: #0915C0;
-  --accent: #F63D15;
-  --accent-warm: #E2A31B;
-  
-  /* Couleurs sombres */
-  --dark: #0a0e27;
-  --dark-secondary: #151938;
-  
-  /* Textes */
-  --text: #2d3047;
-  --text-light: #6b7094;
-  --text-muted: #9498b8;
-  
-  /* Surfaces */
-  --surface: #ffffff;
-  --surface-alt: #f4f5fb;
-  --border: #e4e7f3;
-  
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #0D1BF2 0%, #4f3ef7 50%, #F63D15 100%);
-  --gradient-hero: linear-gradient(160deg, #0a0e27 0%, #151938 40%, #1a1f52 100%);
-  
-  /* Border radius */
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 22px;
-  --radius-xl: 32px;
-  
-  /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(13, 27, 242, 0.06);
-  --shadow-md: 0 8px 30px rgba(13, 27, 242, 0.08);
-  --shadow-lg: 0 20px 60px rgba(13, 27, 242, 0.12);
-  --shadow-glow: 0 0 40px rgba(13, 27, 242, 0.2);
-  
-  /* Layout */
-  --container: 1140px;
-  --header-h: 72px;
+  --color-primary: #162CF8;
+  --color-secondary: #ffffff;
+  --color-accent: #F63D15;
+  --color-accent-warm: #E2A31B;
+  --color-gray: #666666;
+  --font-primary: 'Roboto', sans-serif;
+  --spacing-base: 1rem;
+  --spacing-sm: 0.5rem;
+  --spacing-lg: 2rem;
+  --container-max-width: 1200px;
 }
