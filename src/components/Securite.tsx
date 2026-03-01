@@ -47,11 +47,10 @@ const Securite = () => {
   ];
 
   return (
-    <section 
-      className="section" 
-      id="securite" 
+    <section
+      className="section section-alt"
+      id="securite"
       ref={sectionRef}
-      style={{ background: 'var(--surface-alt)' }}
     >
       <div className="container">
         <div className="section-header">

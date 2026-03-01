@@ -26,27 +26,27 @@ const Services = () => {
   const services = [
     {
       number: 1,
-      title: "🧭 Définition de cas d'usage",
+      title: "Définition de cas d'usage",
       description: "Identifier les opportunités IA/Machine Learning à fort impact pour votre activité, en alignement avec vos objectifs stratégiques."
     },
     {
       number: 2,
-      title: "🧹 Traitement de données",
+      title: "Traitement de données",
       description: "Collecter, nettoyer, structurer et valoriser vos données pour en extraire tout le potentiel exploitable."
     },
     {
       number: 3,
-      title: "🧪 Développement de modèles",
+      title: "Développement de modèles",
       description: "Entraîner, tester et évaluer des modèles de machine learning robustes et performants adaptés à votre cas d'usage."
     },
     {
       number: 4,
-      title: "🔗 Intégration métier",
+      title: "Intégration métier",
       description: "Déployer les solutions IA via API, dashboards interactifs ou automatisations intégrées à vos workflows existants."
     },
     {
       number: 5,
-      title: "🔍 Supervision & maintenance",
+      title: "Supervision & maintenance",
       description: "Suivi de performance en continu, correction des dérives, et évolutions régulières pour garantir un ROI durable."
     }
   ];

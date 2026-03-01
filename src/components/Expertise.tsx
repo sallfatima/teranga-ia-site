@@ -25,25 +25,21 @@ const Expertise = () => {
 
   const expertises = [
     {
-      icon: '🤖',
       title: 'LLM & RAG',
       description: 'Chatbots intelligents, assistants virtuels, génération de contenu et recherche sémantique avec GPT, Claude, Llama.',
       tags: ['OpenAI', 'LangChain', 'Pinecone']
     },
     {
-      icon: '🧠',
       title: 'Machine Learning',
       description: 'Modèles prédictifs, classification, régression, clustering et détection d\'anomalies pour tous vos besoins métiers.',
       tags: ['Scikit-learn', 'TensorFlow', 'PyTorch']
     },
     {
-      icon: '📊',
       title: 'Data Engineering',
       description: 'Pipelines ETL/ELT, data warehousing, orchestration et gouvernance des données à grande échelle.',
       tags: ['Airflow', 'dbt', 'Snowflake']
     },
     {
-      icon: '⚙️',
       title: 'MLOps',
       description: 'Déploiement, monitoring, CI/CD pour vos modèles IA, du développement à la production industrielle.',
       tags: ['MLflow', 'Docker', 'Kubernetes']
@@ -51,11 +47,10 @@ const Expertise = () => {
   ];
 
   return (
-    <section 
-      className="section" 
-      id="expertise" 
+    <section
+      className="section section-alt"
+      id="expertise"
       ref={sectionRef}
-      style={{ background: 'var(--surface-alt)' }}
     >
       <div className="container">
         <div className="section-header">
@@ -73,7 +68,6 @@ const Expertise = () => {
               className={`expertise-card reveal ${isVisible ? 'visible' : ''}`}
               style={{ transitionDelay: `${index * 0.1}s` }}
             >
-              <div className="expertise-icon">{expertise.icon}</div>
               <h3>{expertise.title}</h3>
               <p>{expertise.description}</p>
               <div className="expertise-tags">
